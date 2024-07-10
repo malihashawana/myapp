@@ -1,22 +1,31 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import AdminDashboard from './AdminDashboard';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <nav>
-          <a href="#admin-dashboard" className="admin-dashboard">Admin Dashboard</a>
-          <a href="#login">Login</a>
-          <a href="#signup">Sign Up</a>
-          <a href="#job-details">Job Details</a>
-          <a href="#profile">Profile</a>
-        </nav>
-      </header>
-      <div className="App-container">
-        <h1>Welcome to Workforce Enroll</h1>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <nav>
+            <Link to="/admin-dashboard" className="admin-dashboard">Admin Dashboard</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+            <Link to="/job-details">Job Details</Link>
+            <Link to="/profile">Profile</Link>
+          </nav>
+        </header>
+        <div className="App-container">
+          <Switch>
+            <Route path="/admin-dashboard" component={AdminDashboard} />
+            <Route path="/">
+              <h1>Welcome to Workforce Enroll</h1>
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
