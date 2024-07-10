@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import AdminDashboard from './AdminDashboard';
 import './App.css';
 
@@ -17,12 +17,10 @@ function App() {
           </nav>
         </header>
         <div className="App-container">
-          <Switch>
-            <Route path="/admin-dashboard" component={AdminDashboard} />
-            <Route path="/">
-              <h1>Welcome to Workforce Enroll</h1>
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/" element={<h1>Welcome to Workforce Enroll</h1>} />
+          </Routes>
         </div>
       </div>
     </Router>
